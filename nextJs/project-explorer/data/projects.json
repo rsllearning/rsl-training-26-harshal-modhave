@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "E-Commerce Revamp",
+    "status": "active",
+    "description": "Modernizing the core shopping platform with Next.js App Router.",
+    "team": ["Alice Johnson", "Bob Smith", "Charlie Davis"],
+    "tasks": ["Migrate product page", "Integrate payment gateway", "Optimize images"],
+    "activity": ["Alice pushed a commit to main", "Bob created PR #42"]
+  },
+  {
+    "id": "2",
+    "name": "Mobile Banking App",
+    "status": "active",
+    "description": "Building a cross-platform React Native app for personal banking.",
+    "team": ["Diana Prince", "Ethan Hunt"],
+    "tasks": ["Setup biometric auth", "Implement transaction history"],
+    "activity": ["Diana closed issue #15"]
+  },
+  {
+    "id": "3",
+    "name": "AI Analytics Dashboard",
+    "status": "completed",
+    "description": "Internal business intelligence tool powered by AI insights.",
+    "team": ["Fiona Gallagher", "George Clark"],
+    "tasks": ["Train summary model", "Build chart components"],
+    "activity": ["Project marked as completed"]
+  }
+]
