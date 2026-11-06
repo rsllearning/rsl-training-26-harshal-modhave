@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Clickjacking Defense - Iframe Security Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-box {
+            background: #e8f4fd;
+            border-left: 4px solid #0288d1;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fff8e1;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: 2px dashed #d32f2f;
+            background: #fafafa;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Clickjacking / Framing Security Test</h1>
+
+        <div class="info-box">
+            <h3>Test Purpose:</h3>
+            <p>
+                This page simulates an external attacker's website attempting to frame the protected
+                <code>/account</code> page in an <code>&lt;iframe&gt;</code> to mount a clickjacking attack.
+            </p>
+            <p>
+                <strong>Expected Secure Result:</strong> The embedded frame below MUST fail to render. Modern browsers
+                will refuse to display the document and log the following security violations in the developer console:
+            </p>
+            <ul>
+                <li><code>Refused to display 'http://localhost:3000/account' in a frame because it set 'X-Frame-Options' to 'deny'.</code></li>
+                <li><code>Refused to frame 'http://localhost:3000/account' because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'none'".</code></li>
+            </ul>
+        </div>
+
+        <iframe
+            id="target-frame"
+            src="http://localhost:3000/account"
+            title="Account Settings Target Frame">
+        </iframe>
+
+        <div class="warning-box">
+            <p>
+                <strong>Verification Note:</strong> In vulnerable versions of the application, the account settings card
+                with the red <em>"Delete Account"</em> button would render inside this box without restriction.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
