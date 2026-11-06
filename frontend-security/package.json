@@ -1,0 +1,14 @@
+{
+  "name": "modern-frontend-security",
+  "version": "1.0.0",
+  "description": "Refined secure application for front-end security training",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node --test test/security.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
